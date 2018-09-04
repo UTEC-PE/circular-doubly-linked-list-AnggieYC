@@ -11,8 +11,23 @@ struct Node {
     Node* next;
     Node* prev;
 
-    void killSelf();
-    void print_next();
+	void killSelf() {
+		if (next != start)
+			next->killSelf();
+		delete this;
+	};
+	void print_next() {
+		Node <T>* temp = start;
+		if (start == NULL) throw "Lista Vacía";
+		else {
+			cout << temp->data;
+			temp = temp->next;
+			while (temp != start) {
+				cout << temp->data;
+				temp = temp->next;
+			}
+		}
+	};
 };
 
 #endif
