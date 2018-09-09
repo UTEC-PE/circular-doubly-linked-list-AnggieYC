@@ -16,7 +16,7 @@ class Iterator {
 			current = node;
 		};
 
-		Iterator<T> operator=(Iterator<T> node) {
+		Iterator<T> operator=(Iterator<T> node) { // return current? Esto no va a compilar
 			current = node.current;
 			return *current;
 		};
@@ -25,11 +25,11 @@ class Iterator {
 		};
 		Iterator<T> operator++() {
 			current = current->next;
-			return *current;
+			return *current; // return current? Esto no va a compilar
 		};
 		Iterator<T> operator--() {
 			current = current->prev;
-			return *current;
+			return *current; // return current? Esto no va a compilar
 		};
 		T operator*() {
 			return (current->data;)

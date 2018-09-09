@@ -13,17 +13,17 @@ class List {
         Node<T>* start;
 
     public:
-        LList() {
+        LList() { // Esto no va a compilar
 			start = NULL;
 		};
 
 		T front() {
-			if (start == NULL) throw 'Lista Vacía';
+			if (start == NULL) throw 'Lista Vacï¿½a';
 			else start->data;
 		};
 
 		T back() {
-			if (start == NULL) throw 'Lista Vacía';
+			if (start == NULL) throw 'Lista Vacï¿½a';
 			else start->prev->data;
 		};
 		void push_front(T value) {
@@ -54,7 +54,7 @@ class List {
 			}
 		};
 		void pop_front() {
-			Node <T>* temp = start;
+			Node <T>* temp = start; // Te falta controlar casos
 			temp->prev->next = temp->next;
 			temp->next->prev = temp->prev;
 			start = temp->next;
@@ -62,14 +62,14 @@ class List {
 
 		};
 		void pop_back() {
-			Node <T>* temp = start->prev;
+			Node <T>* temp = start->prev; // Te falta controlar casos
 			temp->prev->next = start;
 			start->prev = temp->prev;
 			delete temp;
 		};
 		T get(int position) {
 			if (position >= size()) position = position % size();
-			if (position < 0) throw "Error en la posición";
+			if (position < 0) throw "Error en la posiciï¿½n";
 			else {
 				Node <T>* temp = start;
 				for (int i = 0; i < position; i++) {
@@ -80,7 +80,7 @@ class List {
 
 		};
 
-		void concat(List<T> &other) {
+		void concat(List<T> &other) { // Falta implementar
 		};
 
 		bool empty() {
@@ -99,7 +99,7 @@ class List {
 			}
 		};
 		void clear() {
-			start->killSelf();
+			start->killSelf(); // Esto no funciona en una lista circular
 			start = NULL;
 		};
 		Iterator<T> begin() {
@@ -110,7 +110,7 @@ class List {
 		};
 
 		~List() {
-			clear();
+			clear(); // No va a funcionar en la manera que lo implementaste
 		};
 };
 
